@@ -4,6 +4,10 @@ class FSEvent
   attr_accessor :latency
   attr_reader   :directories
 
+  def self.watch(*args, &on_change_block)
+    new(*args, &on_change_block).tap(&:start)
+  end
+
   # call-seq:
   #   FSEvent.new(directory, …] [, latency])
   #
@@ -22,10 +26,12 @@ class FSEvent
   # tells how long to wait after an event occurs before notifying; this
   # reduces the volume of events and reduces the chance that the client will
   # see an "intermediate" state.
-  def initialize(*args)
+  def initialize(*args, &on_change_block)
     @run_loop = CFRunLoop.instance or raise "could not obtain a run loop"
     @latency  = args.last.is_a?(Numeric) ? args.pop : 0.5
     watch args
+    return unless on_change_block
+    singleton_class.send(:define_method, :on_change, &on_change_block)
   end
 
   # Set a single directory or an array of directories to be monitored by this
