@@ -44,10 +44,6 @@ describe FSEvent do
     end
 
     it "complains about unrecognized types" do
-      lambda { FSEvent.new('/tmp', 'foo') }.should raise_error(
-        TypeError, 'latency must be a Numeric value'
-      )
-
       lambda { FSEvent.new({}, 1) }.should raise_error(
         TypeError, 'directories must be given as a String or an Array of strings'
       )
