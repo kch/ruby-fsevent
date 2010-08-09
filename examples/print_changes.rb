@@ -1,5 +1,4 @@
-
-$LOAD_PATH.unshift File.expand_path('../ext', File.dirname(__FILE__))
+$LOAD_PATH.unshift File.expand_path('../lib', File.dirname(__FILE__))
 require 'fsevent'
 
 class PrintChange < FSEvent
@@ -23,4 +22,3 @@ printer.start  # the start method no longer blocks
 # the user to hit enter. The program will gracefuly exit when the main ruby
 # thread gets to the end of the program.
 STDIN.getc
-
