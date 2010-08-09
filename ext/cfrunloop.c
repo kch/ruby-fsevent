@@ -165,7 +165,7 @@ cfrunloop_dispatcher( void* self ) {
  *    CFRunLoop.new
  *
  * Creates a single CFRunLoop instance. Multiple invocations of the new method
- * will always return the same instance; this instance is also expased via the
+ * will always return the same instance; this instance is also exposed via the
  * class level CFRunLoop.instance method.
  */
 static VALUE
@@ -184,7 +184,7 @@ cfrunloop_new( VALUE klass ) {
  *    CFRunLoop.new
  *
  * Creates a single CFRunLoop instance. Multiple invocations of the new method
- * will always return the same instance; this instance is also expased via the
+ * will always return the same instance; this instance is also exposed via the
  * class level CFRunLoop.instance method.
  */
 static VALUE
@@ -225,7 +225,7 @@ cfrunloop_start( VALUE self ) {
 /* call-seq:
  *    stop
  *
- * Stop the interal run loop by invoking the CFRunLoopStop method. If the run
+ * Stop the internal run loop by invoking the CFRunLoopStop method. If the run
  * loop has already been stopped, then this method returns without taking any
  * action.
  */

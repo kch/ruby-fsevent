@@ -54,7 +54,7 @@ fsevent_struct_allocate( VALUE klass ) {
 }
 
 // A helper method that will return true if the given VALUE is a
-// fsevent_strucct. Returns false if this is not the case.
+// fsevent_struct. Returns false if this is not the case.
 bool
 is_fsevent_struct( VALUE self ) {
   return TYPE(self) == T_DATA && RDATA(self)->dfree == (RUBY_DATA_FUNC) fsevent_struct_free;
@@ -193,7 +193,7 @@ static VALUE fsevent_watch(VALUE, VALUE);
  *    FSEvent.new( latency )
  *    FSEvent.new( directories, latency )
  *
- * Create a new FSEvent notifier instance configured to recieve notifications
+ * Create a new FSEvent notifier instance configured to receive notifications
  * for the given _directories_ with a specific _latency_. After the notifier
  * is created, you must call the +start+ method to begin receiving
  * notifications.
