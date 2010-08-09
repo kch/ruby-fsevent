@@ -261,6 +261,7 @@ void Init_cfrunloop() {
   rb_define_method( cfrunloop_class, "start",     cfrunloop_start,       0 );
   rb_define_method( cfrunloop_class, "running?",  cfrunloop_is_running,  0 );
 
+  rb_define_attr( cfrunloop_class,                     "thread",   1, 0 );
   rb_define_attr( rb_singleton_class(cfrunloop_class), "instance", 1, 0 );
   cfrunloop_new( cfrunloop_class );
 }
