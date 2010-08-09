@@ -11,7 +11,10 @@ class FSEvent
   end
 
   def watch(*paths)
-    @directories = paths.flatten.map(&:to_str)
+    @directories = paths.flatten.compact.map(&:to_str)
+  rescue NoMethodError => e
+    raise unless e.name == :to_str
+    raise TypeError, "directories must be given as a String or an Array of strings"
   end
   alias_method :watch_directories, :watch
   alias_method :directories=,      :watch
