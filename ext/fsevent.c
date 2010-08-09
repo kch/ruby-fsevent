@@ -274,6 +274,7 @@ fsevent_start( VALUE self ) {
   VALUE ary = rb_iv_get(self, "@directories");
   if (NIL_P(ary)) rb_raise(rb_eRuntimeError, "no directories to watch");
   Check_Type(ary, T_ARRAY);
+  if (RARRAY_LEN(ary) <= 0) rb_raise(rb_eRuntimeError, "no directories to watch");
 
   fsevent_start_stream(self);
   return self;
