@@ -17,6 +17,7 @@ Example
     printer = PrintChange.new
     printer.watch_directories %W(#{Dir.pwd} /tmp)
     printer.start
+    getc  # wait for IO to prevent the script from exiting
 
 
 Examine ruby-fsevent/examples
