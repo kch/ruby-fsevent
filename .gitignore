@@ -3,3 +3,4 @@ ext/*.o
 ext/*.bundle
 ext/mkmf.log
 pkg/*
+doc/
