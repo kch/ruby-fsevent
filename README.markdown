@@ -71,4 +71,4 @@ Note on Patches/Pull Requests
 Copyright
 ---------
 
-Copyright (c) 2009 Sandro Turriate. See LICENSE for details.
+Copyright (c) 2009 Sandro Turriate. See MIT_LICENSE for details.
