@@ -65,7 +65,7 @@ describe FSEvent do
       subject.directories = %w(/Users /tmp)
       subject.directories.should == %w(/Users /tmp)
       subject.watch nil
-      subject.directories.should be_nil
+      subject.directories.should == []
     end
   end
 
@@ -117,4 +117,3 @@ describe FSEvent do
   end
 
 end
-
