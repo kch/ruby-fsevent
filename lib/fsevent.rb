@@ -5,12 +5,18 @@ class FSEvent
   attr_accessor :latency
   attr_reader   :directories
 
+  # call-seq:
+  #   FSEvent.watch(directory, … [, latency]) { |paths| block }
+  #
+  # Initializes a new instance of FSEvent and starts it. See ::new for
+  # more.
   def self.watch(*args, &on_change_block)
     new(*args, &on_change_block).tap(&:start)
   end
 
   # call-seq:
   #   FSEvent.new(directory, …] [, latency])
+  #   FSEvent.new(directory, …, [, latency]) { |paths| block }
   #
   # Create a new FSEvent notifier instance configured to receive notifications
   # for the given _directories_ with a specific _latency_. After the notifier
@@ -27,6 +33,9 @@ class FSEvent
   # tells how long to wait after an event occurs before notifying; this
   # reduces the volume of events and reduces the chance that the client will
   # see an "intermediate" state.
+  #
+  # When called with a block, this block defines _on_change_ for that
+  # instance, supressing the need for subclassing.
   def initialize(*args, &on_change_block)
     @run_loop = CFRunLoop.instance or raise "could not obtain a run loop"
     @latency  = args.last.is_a?(Numeric) ? args.pop : 0.5
