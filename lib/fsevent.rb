@@ -1,4 +1,5 @@
-require File.expand_path('../ext/fsevent', File.dirname(__FILE__))
+require File.expand_path('../ext/fsevent',        File.dirname(__FILE__))
+require File.expand_path('fsevent-ruby18-compat', File.dirname(__FILE__))
 
 class FSEvent
   attr_accessor :latency
